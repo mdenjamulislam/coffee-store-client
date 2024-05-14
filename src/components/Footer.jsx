@@ -1,10 +1,51 @@
-import React from 'react';
+import React from "react";
+import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className='bg-footer-pattern bg-no-repeat bg-center bg-cover'>
-            <div className="container py-4 text-center">
-                <p className='text-white text-lg font-medium font-rancho'>Copyright Espresso Emporium ! All Rights Reserved</p>
+        <footer className="bg-footer-pattern bg-cover bg-center bg-no-repeat">
+            <div className="container py-5">
+                <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-between lg:gap-10">
+                    <div className="space-y-4">
+                        <div>
+                            <img src={logo} alt="" />
+                            <h2 className="font-rancho text-xl font-bold text-primary md:text-3xl lg:text-4xl">Espresso Emporium</h2>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta vero et possimus quos accusamus sit totam iste voluptatibus excepturi incidunt.</p>
+                        <div className="flex items-center gap-3">
+                            <Link>
+                                <FaFacebookF className="text-xl text-primary hover:text-accent" />
+                            </Link>
+                            <Link>
+                                <FaXTwitter className="text-xl text-primary hover:text-accent" />
+                            </Link>
+                            <Link>
+                                <FaInstagram className="text-xl text-primary hover:text-accent" />
+                            </Link>
+                            <Link>
+                                <FaLinkedinIn className="text-xl text-primary hover:text-accent" />
+                            </Link>
+                        </div>
+                        <div className="space-y-3">
+                            <h3 className="font-rancho text-xl font-bold text-primary md:text-2xl">Get In Touch</h3>
+                            <div className="space-y-2">
+                                <p className="text-primary">Phone: +123 456 7890</p>
+                                <p className="text-primary">Email: info@gmail.com</p>
+                                <p className="text-primary">Address: 1234 Street Name, City Name, United States</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="font-rancho text-xl font-bold text-primary md:text-3xl">Contact With Us</h3>
+                    </div>
+                </div>
+            </div>
+            <div className="bg-footer-bottom bg-cover bg-center bg-no-repeat">
+                <div className="container py-4 text-center">
+                    <p className="font-rancho text-lg font-medium text-white">Copyright Espresso Emporium ! All Rights Reserved</p>
+                </div>
             </div>
         </footer>
     );

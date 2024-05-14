@@ -8,7 +8,7 @@ const Header = () => {
                 <div className="flex items-center gap-3">
                     <img src={logo} alt="Coffee Store" className="w-auto h-12 md:h-20" />
                     <h1 className="font-rancho text-3xl font-semibold text-white md:text-4xl lg:text-7xl">
-                        Coffee Store
+                    Espresso Emporium
                     </h1>
                 </div>
             </div>

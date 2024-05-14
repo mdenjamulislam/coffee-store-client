@@ -32,7 +32,9 @@ export default {
     },
     backgroundImage: {
       'header-pattern': "url('src/assets/header-bg.png')",
-      'footer-pattern': "url('src/assets/footer-bg.png')",
+      'footer-pattern': "url('src/assets/footer.png')",
+      'footer-bottom': "url('src/assets/footer-bg.png')",
+
     },
   },
   plugins: [
