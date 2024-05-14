@@ -6,9 +6,16 @@ export default {
   ],
   theme: {
     extend: {},
+    container: {
+      center: true,
+    },
     fontFamily: {
       rancho: ["Rancho", "cursive"],
       sans: ["Nunito", "sans-serif"],
+    },
+    backgroundImage: {
+      'header-pattern': "url('src/assets/header-bg.png')",
+      'footer-pattern': "url('src/assets/footer-bg.png')",
     },
   },
   plugins: [
