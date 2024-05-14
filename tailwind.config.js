@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      rancho: ["Rancho", "cursive"],
+      sans: ["Nunito", "sans-serif"],
+    },
   },
   plugins: [
     require('daisyui'),
