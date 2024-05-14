@@ -5,9 +5,26 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#374151",
+        secondary: "#1B1A1A",
+        accent: "#E3B577",
+        accent2: "#EA4744",
+        dark: "#331A15",
+        light: "#F4F3F0",
+        "text-primary": "#5C5B5B",
+      }
+    },
     container: {
       center: true,
+      screens: {
+        sm: "100%",
+        md: "100%",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1320px",
+      },
     },
     fontFamily: {
       rancho: ["Rancho", "cursive"],

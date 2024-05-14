@@ -2,3 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    body {
+        @apply text-text-primary font-sans;
+    }
+
+    p {
+        @apply text-text-primary font-sans text-sm md:text-base;
+    }
+
+    /* Form */
+    .form-field {
+        @apply block w-full rounded-md border border-white bg-white px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none focus:ring-accent md:text-base;
+    }
+
+    .btn--filled {
+        @apply font-rancho border-dark hover:bg-accent2 rounded border-2 bg-accent px-3 py-2 text-base font-bold text-primary transition-all duration-200 hover:text-white md:text-2xl;
+    }
+}
