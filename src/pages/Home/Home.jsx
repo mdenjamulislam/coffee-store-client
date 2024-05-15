@@ -4,14 +4,16 @@ import CoffeeList from "../../components/CoffeeList";
 import { BsCupHot } from "react-icons/bs";
 import CoffeeCard from "../../components/CoffeeCard";
 import Banner from "../../components/Banner";
+import Featured from "../../components/Featured";
 
 const Home = () => {
     const coffeeLoaderData = useLoaderData();
     const [coffees, setCoffees] = useState(coffeeLoaderData);
     return (
         <main>
-            <Banner/>
-            <section className="bg-watermark-1 my-5 bg-left-top bg-no-repeat md:my-8 lg:my-14">
+            <Banner />
+            <Featured/>
+            <section className="bg-watermark-1 my-8 bg-left-top bg-no-repeat md:my-10 lg:my-14">
                 <div className="bg-watermark-2 bg-right-bottom bg-no-repeat">
                     <div className="container">
                         <div className="mb-7 flex flex-col items-center gap-4 md:mb-12 md:gap-6">
