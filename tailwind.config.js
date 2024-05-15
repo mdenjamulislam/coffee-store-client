@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#374151",
+        primary: "#331A15",
         secondary: "#1B1A1A",
         accent: "#E3B577",
         accent2: "#EA4744",
@@ -18,6 +18,7 @@ export default {
     },
     container: {
       center: true,
+      padding: "1rem",
       screens: {
         sm: "100%",
         md: "100%",
@@ -34,7 +35,8 @@ export default {
       'header-pattern': "url('src/assets/header-bg.png')",
       'footer-pattern': "url('src/assets/footer.png')",
       'footer-bottom': "url('src/assets/footer-bg.png')",
-
+      'watermark-1': "url('src/assets/cup-watermark.png')",
+      'watermark-2': "url('src/assets/watermark-2.png')",
     },
   },
   plugins: [

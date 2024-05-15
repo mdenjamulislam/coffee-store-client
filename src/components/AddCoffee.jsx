@@ -9,14 +9,14 @@ const AddCoffee = () => {
         const form = e.target;
 
         const coffeeName = form.coffee_name.value;
-        const chef = form.chef.value;
+        const price = form.price.value;
         const supplier = form.supplier.value;
         const taste = form.taste.value;
         const category = form.category.value;
         const details = form.details.value;
         const photoUrl = form["photo-url"].value;
 
-        const coffee = { coffeeName, chef, supplier, taste, category, details, photoUrl };
+        const coffee = { coffeeName, price, supplier, taste, category, details, photoUrl };
         console.log(coffee);
 
         // Send the coffee object to the server
@@ -56,8 +56,8 @@ const AddCoffee = () => {
                         <input type="text" name="coffee_name" placeholder="Enter coffee name" className="form-field" />
                     </div>
                     <div className="space-y-2.5">
-                        <label className="block text-base font-medium text-text-primary md:text-lg">Chef</label>
-                        <input type="text" name="chef" placeholder="Enter coffee chef" className="form-field" />
+                        <label className="block text-base font-medium text-text-primary md:text-lg">Price</label>
+                        <input type="text" name="price" placeholder="Enter coffee price" className="form-field" />
                     </div>
                     <div className="space-y-2.5">
                         <label className="block text-base font-medium text-text-primary md:text-lg">Supplier</label>
