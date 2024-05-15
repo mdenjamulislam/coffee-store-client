@@ -37,6 +37,7 @@ export default {
       'footer-bottom': "url('src/assets/footer-bg.png')",
       'watermark-1': "url('src/assets/cup-watermark.png')",
       'watermark-2': "url('src/assets/watermark-2.png')",
+      "banner": "url('src/assets/banner.png')",
     },
   },
   plugins: [

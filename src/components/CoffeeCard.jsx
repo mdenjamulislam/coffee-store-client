@@ -30,7 +30,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                                 text: "Your file has been deleted.",
                                 icon: "success",
                             });
-                            const remaning = coffees.filter(coffee => coffee._id !== _id);
+                            const remaning = coffees.filter((coffee) => coffee._id !== _id);
                             setCoffees(remaning);
                         }
                     });
@@ -54,9 +54,11 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                 </p>
             </div>
             <div className="flex flex-row items-center gap-3 md:flex-col md:gap-4">
-                <button className="flex h-10 w-10 items-center justify-center rounded bg-orange-200 text-white hover:bg-accent">
-                    <FaEye className="text-xl text-white" />
-                </button>
+                <Link to={`/coffee/${_id}`}>
+                    <button className="flex h-10 w-10 items-center justify-center rounded bg-orange-200 text-white hover:bg-accent">
+                        <FaEye className="text-xl text-white" />
+                    </button>
+                </Link>
                 <Link to={`/updatecoffee/${_id}`}>
                     <button className="flex h-10 w-10 items-center justify-center rounded bg-dark text-white hover:bg-primary">
                         <FaPencilAlt className="text-xl text-white" />

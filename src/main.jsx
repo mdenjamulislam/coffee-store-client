@@ -7,6 +7,7 @@ import AddCoffee from "./components/AddCoffee.jsx";
 import UpdateCoffee from "./components/UpdateCoffee.jsx";
 import Root from "./layout/Root.jsx";
 import Home from "./pages/Home/Home.jsx";
+import CoffeeDetails from "./components/CoffeeDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/coffee/:id", 
-                
+                element: <CoffeeDetails />,
+                loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`),
             },
             {
                 path: "/addcoffee",
