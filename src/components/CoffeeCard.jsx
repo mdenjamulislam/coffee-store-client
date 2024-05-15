@@ -1,8 +1,9 @@
 import { FaEye, FaPencilAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     const { _id, coffeeName, price, supplier, taste, category, details, photoUrl } = coffee;
 
     const handleDeleteCoffee = (_id) => {
@@ -14,17 +15,28 @@ const CoffeeCard = ({ coffee }) => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
+                fetch(`http://localhost:5000/coffee/${_id}`, {
+                    method: "DELETE",
+                    headers: { "content-type": "application/json" },
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success",
+                            });
+                            const remaning = coffees.filter(coffee => coffee._id !== _id);
+                            setCoffees(remaning);
+                        }
+                    });
             }
-          });
-    }
+        });
+    };
 
     return (
         <div className="flex flex-col items-center justify-between gap-5 rounded-lg bg-light p-4 md:flex-row md:p-5 lg:p-7">
@@ -45,9 +57,11 @@ const CoffeeCard = ({ coffee }) => {
                 <button className="flex h-10 w-10 items-center justify-center rounded bg-orange-200 text-white hover:bg-accent">
                     <FaEye className="text-xl text-white" />
                 </button>
-                <button className="flex h-10 w-10 items-center justify-center rounded bg-dark text-white hover:bg-primary">
-                    <FaPencilAlt className="text-xl text-white" />
-                </button>
+                <Link to={`/updatecoffee/${_id}`}>
+                    <button className="flex h-10 w-10 items-center justify-center rounded bg-dark text-white hover:bg-primary">
+                        <FaPencilAlt className="text-xl text-white" />
+                    </button>
+                </Link>
                 <button onClick={() => handleDeleteCoffee(_id)} className="flex h-10 w-10 items-center justify-center rounded bg-accent2 text-white hover:bg-accent">
                     <MdDelete className="text-xl text-white" />
                 </button>

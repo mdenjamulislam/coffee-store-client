@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import CoffeeList from "../../components/CoffeeList";
 import { BsCupHot } from "react-icons/bs";
@@ -6,6 +6,7 @@ import CoffeeCard from "../../components/CoffeeCard";
 
 const Home = () => {
     const coffeeLoaderData = useLoaderData();
+    const [coffees, setCoffees] = useState(coffeeLoaderData);
     return (
         <main>
             <section className="bg-watermark-1 my-5 bg-left-top bg-no-repeat md:my-8 lg:my-14">
@@ -25,8 +26,8 @@ const Home = () => {
                         </div>
                         {/* Coffee List */}
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
-                            {coffeeLoaderData.map((coffee) => (
-                                <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard>
+                            {coffees.map((coffee) => (
+                                <CoffeeCard key={coffee._id} coffee={coffee} coffees={coffees} setCoffees={setCoffees}></CoffeeCard>
                             ))}
                         </div>
                     </div>
