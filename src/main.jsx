@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home.jsx";
 import CoffeeDetails from "./components/CoffeeDetails.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
 
 const router = createBrowserRouter([
     {
@@ -19,12 +20,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/coffee'),
+                loader: () => fetch("http://localhost:5000/coffee"),
             },
             {
-                path: "/coffee/:id", 
+                path: "/coffee/:id",
                 element: <CoffeeDetails />,
-                loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
             },
             {
                 path: "/addcoffee",
@@ -33,22 +34,24 @@ const router = createBrowserRouter([
             {
                 path: "/updatecoffee/:id",
                 element: <UpdateCoffee />,
-                loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
             },
             {
-                path: '/signup',
-                element: <SignUp/>
+                path: "/signup",
+                element: <SignUp />,
             },
             {
                 path: "/login",
-                element: <Login/>
-            }
+                element: <Login />,
+            },
         ],
     },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <RouterProvider router={router}></RouterProvider>
+        <AuthProvider>
+            <RouterProvider router={router}></RouterProvider>
+        </AuthProvider>
     </React.StrictMode>,
 );
