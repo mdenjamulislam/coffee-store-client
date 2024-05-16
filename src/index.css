@@ -11,6 +11,10 @@
         @apply text-text-primary font-sans text-sm md:text-base;
     }
 
+    .section--padding {
+        @apply py-6 md:py-12 lg:py-16;
+    }
+
     /* Form */
     .form-field {
         @apply block w-full rounded-md border border-white bg-white px-3 py-2 text-sm shadow-sm focus:border-accent focus:outline-none focus:ring-accent md:text-base;
