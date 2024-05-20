@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const [passwordNotMatch, setPasswordNotMatch] = useState(false);
@@ -25,8 +26,29 @@ const SignUp = () => {
 
         createUser(email, password)
             .then((result) => {
-                const user = result.user;
-                console.log(user);
+                console.log(result.user);
+                const createAt = result.user?.metadata?.creationTime; // ? this is optional chaining operator to prevent error if user is null or undefined or metadata is null or undefined
+                const lastSignInTime = result.user?.metadata?.lastSignInTime;
+                const user = { name, email, createAt, lastSignInTime };
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Account Created Successfully!",
+                                text: "You can login now!",
+                                footer: '<a href="/login">Login Now</a>',
+                            });
+                        }
+                    });
             })
             .catch((error) => {
                 const errorCode = error.code;
