@@ -19,6 +19,11 @@ const Header = () => {
                     Login
                 </Link>
             </li>
+            <li>
+                <Link to="/users" className="font-sans text-base text-white hover:text-accent md:text-lg">
+                    Users
+                </Link>
+            </li>
         </>
     );
     return (
