@@ -1,22 +1,16 @@
+import { useContext } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
+
     const menuList = (
         <>
             <li>
                 <Link to="/" className="font-sans text-base text-white hover:text-accent md:text-lg">
                     Home
-                </Link>
-            </li>
-            <li>
-                <Link to="/signup" className="font-sans text-base text-white hover:text-accent md:text-lg">
-                    Sign Up
-                </Link>
-            </li>
-            <li>
-                <Link to="/login" className="font-sans text-base text-white hover:text-accent md:text-lg">
-                    Login
                 </Link>
             </li>
             <li>
@@ -43,11 +37,45 @@ const Header = () => {
                         </div>
                         <Link to="/" className="flex items-center gap-3">
                             <img src={logo} alt="Coffee Store" className="h-12 w-auto md:h-20" />
-                            <h1 className="font-rancho text-3xl font-semibold text-white md:text-4xl lg:text-7xl">Espresso Emporium</h1>
+                            <h1 className="font-rancho text-2xl font-semibold text-white md:text-4xl ">Espresso Emporium</h1>
                         </Link>
                     </div>
-                    <div className="navbar-end">
+                    <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">{menuList}</ul>
+                    </div>
+                    <div className="navbar-end">
+                        {user ? (
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="avatar btn btn-circle btn-ghost">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <Link to="/addcoffee">Add Coffee</Link>
+                                    </li>
+                                    <li>
+                                        <a>Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        ) : (
+                            <div className="space-x-2">
+                                <Link to="/signup" className="font-sans text-base text-white hover:text-accent md:text-lg">
+                                    Sign Up
+                                </Link>
+                                <Link to="/login" className="font-sans text-base text-white hover:text-accent md:text-lg">
+                                    Login
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </nav>
             </div>
