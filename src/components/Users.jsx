@@ -48,7 +48,8 @@ const Users = () => {
                             <tr>
                                 <th>Name</th>
                                 <th>Address</th>
-                                <th>Created Date/Time</th>
+                                <th>Created</th>
+                                <th>Last Login</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -76,6 +77,9 @@ const Users = () => {
                                     </td>
                                     <td>
                                         <span>{user.createAt}</span>
+                                    </td>
+                                    <td>
+                                        <span>{ user.lastSignInTime}</span>
                                     </td>
                                     <th className="space-x-2">
                                         <button className="btn btn-success btn-xs">Update</button>

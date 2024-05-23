@@ -2,9 +2,19 @@ import { useContext } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { signOut } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, signOutUser } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        signOut(auth).then(() => {
+            console.log("Sign out successful");
+          }).catch((error) => {
+            console.log(error.message);
+          });
+    };
 
     const menuList = (
         <>
@@ -62,12 +72,12 @@ const Header = () => {
                                         <Link to="/addcoffee">Add Coffee</Link>
                                     </li>
                                     <li>
-                                        <a>Logout</a>
+                                        <button onClick={handleLogOut}>Logout</button>
                                     </li>
                                 </ul>
                             </div>
                         ) : (
-                            <div className="space-x-2">
+                            <div className="space-x-3">
                                 <Link to="/signup" className="font-sans text-base text-white hover:text-accent md:text-lg">
                                     Sign Up
                                 </Link>
