@@ -18,7 +18,7 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user);
                 if (result.user) {
-                    // window.location.href = "/";
+                    window.location.href = "/";
                 }
             })
             .catch((error) => {
