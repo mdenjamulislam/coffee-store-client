@@ -17,6 +17,21 @@ const Login = () => {
         signInUser(email, password)
             .then((result) => {
                 console.log(result.user);
+                const user = {
+                    email,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime,
+                };
+                fetch("http://localhost:5000/users", {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                    });
                 if (result.user) {
                     window.location.href = "/";
                 }
