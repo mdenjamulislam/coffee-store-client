@@ -21,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch("http://localhost:5000/coffee"),
+                loader: () => fetch("https://coffee-store-server-one-hazel.vercel.app/coffee"),
             },
             {
                 path: "/coffee/:id",
                 element: <CoffeeDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
+                loader: ({ params }) => fetch(`https://coffee-store-server-one-hazel.vercel.app/coffee/${params.id}`),
             },
             {
                 path: "/addcoffee",
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
             {
                 path: "/updatecoffee/:id",
                 element: <UpdateCoffee />,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
+                loader: ({ params }) => fetch(`https://coffee-store-server-one-hazel.vercel.app/coffee/${params.id}`),
             },
             {
                 path: "/signup",
@@ -46,15 +46,15 @@ const router = createBrowserRouter([
                 element: <Login />,
             },
             {
-                path: '/users',
+                path: "/users",
                 element: <Users />,
-                loader: () => fetch('http://localhost:5000/users'),
+                loader: () => fetch("https://coffee-store-server-one-hazel.vercel.app/users"),
             },
             {
-                path: '/users/:id',
+                path: "/users/:id",
                 element: <Users />,
-                loader: () => fetch('http://localhost:5000/users'),
-            }
+                loader: () => fetch("https://coffee-store-server-one-hazel.vercel.app/users"),
+            },
         ],
     },
 ]);

@@ -17,7 +17,7 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://coffee-store-server-one-hazel.vercel.app/users/${id}`, {
                     method: "DELETE",
                     headers: {
                         "content-type": "application/json",
@@ -79,7 +79,7 @@ const Users = () => {
                                         <span>{user.createAt}</span>
                                     </td>
                                     <td>
-                                        <span>{ user.lastSignInTime}</span>
+                                        <span>{user.lastSignInTime}</span>
                                     </td>
                                     <th className="space-x-2">
                                         <button className="btn btn-success btn-xs">Update</button>

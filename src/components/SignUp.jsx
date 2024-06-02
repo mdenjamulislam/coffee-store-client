@@ -30,7 +30,7 @@ const SignUp = () => {
                 const createAt = result.user?.metadata?.creationTime; // ? this is optional chaining operator to prevent error if user is null or undefined or metadata is null or undefined
                 const lastSignInTime = result.user?.metadata?.lastSignInTime;
                 const user = { name, email, createAt, lastSignInTime };
-                fetch("http://localhost:5000/users", {
+                fetch("https://coffee-store-server-one-hazel.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
